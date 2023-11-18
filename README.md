@@ -1,9 +1,9 @@
 # Responsive Meditation Website Using HTML CSS & Javascript
 
-### [🔗 Visit Live Demo](https://cods-medi.netlify.app/)
 
-### [⏯ Watch On Youtube](https://youtu.be/NXxGO3g8sNs)
 
-![thumbnail](thumbnail.png)
+### [⏯ Watch System Demo](https://youtu.be/3a80m5tDhU8?si=4sFQVxkBcuk8CPRE)
+
+![thumbnail](home.png)
 
 ----------
