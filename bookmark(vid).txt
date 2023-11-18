@@ -1,0 +1,93 @@
+<?php
+
+@include 'meditation-header.php';
+ 
+ 
+if(isset($_GET['remove'])){ 
+   $remove_id = $_GET['remove']; 
+   mysqli_query($connect, "DELETE FROM bookmark WHERE id = '$remove_id'"); 
+   header('location:bookmark.php'); 
+}; 
+ 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bookmark</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="style_library.css">
+
+</head>
+<body>
+
+<?php include 'header.php'; ?>
+
+<div class="container">
+
+<section class="library-bookmark">
+
+   <h1 class="heading">BOOKMARK</h1>
+
+   <table>
+
+      <thead>
+         <th>video</th>
+         <th>name</th>
+         <th>action</th>
+      </thead>
+
+      <tbody>
+
+         <?php 
+         
+         $select_bookmark = mysqli_query($connect, "SELECT * FROM `bookmark`");
+       
+         if(mysqli_num_rows($select_bookmark) > 0){
+            while($fetch_bookmark = mysqli_fetch_assoc($select_bookmark)){
+         ?>
+
+         <tr>
+            <td>
+               <video controls>
+                  <source src="uploaded_img/<?php echo $fetch_bookmark['video']; ?>" type="video/mp4">
+                  Your browser does not support the video tag.
+               </video>
+            </td>
+            <td><?php echo $fetch_bookmark['name']; ?></td>
+
+            <td><a href="bookmark.php?remove=<?php echo $fetch_bookmark['id']; ?>" onclick="return confirm('remove item from bookmark?')" class="delete-btn"> <i class="fas fa-trash"></i> remove</a></td>
+         </tr>
+         <?php
+            
+            };
+         };
+         ?>
+         <tr class="table-bottom">
+            <td><a href="http://localhost/meditation/index.html" class="option-btn" style="margin-top: 0;">Home</a></td>
+   
+            
+         </tr>
+
+      </tbody>
+
+   </table>
+
+
+
+</section>
+
+</div>
+   
+<!-- custom js file link  -->
+<script src="script_library.js"></script>
+
+</body>
+</html>

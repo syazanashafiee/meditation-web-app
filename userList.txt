@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>User List</title>
+
+   <!-- Link to your custom CSS file -->
+   <link rel="stylesheet" href="style_user.css">
+</head>
+<body>
+<?php
+// Include the file to connect to the server (meditation-header.php)
+include ("meditation-header.php");
+?>
+
+<div class="center-container">
+<h2>List of Members:</h2>
+   
+   <?php
+   // Make the query
+   $q = "SELECT id, name, email, password, user_type FROM user_form ORDER BY id";
+
+   // Run the query and assign it to the variable $result
+   $result = @mysqli_query ($connect, $q);
+   if($result)
+   {
+	   
+      // Table heading
+      echo '<table>
+         <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>USER TYPE</th>
+            <th>UPDATE</th>
+            <th>DELETE</th>
+         </tr>';
+
+      // Fetch and print all the records
+      while($row=mysqli_fetch_array($result, MYSQLI_ASSOC))
+      {
+         echo'<tr>
+            <td>' .$row['id'].'</td>
+            <td>' .$row['name'].'</td>
+            <td>' .$row['email'].'</td>
+            <td>' .$row['user_type'].'</td>
+            <td align="center"><a href="userUpdate.php?id='.$row['id'].'">Update</a></td>
+            <td align="center"><a href="userDelete.php?id='.$row['id'].'">Delete</a></td>
+         </tr>';
+      }
+      //close the table
+      echo '</table>';
+
+      //free up the resources
+      mysqli_free_result($result);
+   }
+   else
+   {
+      //error message
+      echo '<p class="error">The current user data could not be retrieved. We apologize for any inconvenience.</p>';
+      
+      //debugging message
+      echo '<p>' .mysqli_error ($connect). '<br><br>Query:'.$q.'</p>';
+   }
+
+   //close the database connection
+   mysqli_close($connect);
+   ?>
+
+  </div>
+   <a href="http://localhost/meditation/login_form.php" class="admin-button">DONE</a>
+   
+
+
+</body>
+</html>

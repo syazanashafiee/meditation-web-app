@@ -1,0 +1,56 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply basic styling to the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+/* Style the form container */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #eee;
+}
+
+/* Style the heading */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+   
+}
+
+/* Style the confirmation message */
+h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Style the "Yes" and "No" buttons */
+#submit-yes, #submit-no {
+    background-color: #986c91;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin: 10px;
+}
+
+#submit-yes:hover, #submit-no:hover {
+    background-color: #754c75;
+}

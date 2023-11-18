@@ -1,0 +1,55 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            align-items: center;
+            justify-content: center;
+        }
+
+        center {
+            text-align: center;
+        }
+
+        h2 {
+            color: #986c91;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #986c91;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .adminpage {
+            background-color: #986c91;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .adminpage:hover {
+            background-color: #d0efe1;
+        }

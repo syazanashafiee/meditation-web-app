@@ -1,0 +1,97 @@
+/* Reset some default styles to achieve consistent styling */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Apply a background color and text color to the body */
+  body {
+    background-color: #f5f5f5;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Center-align the container */
+  .center-container {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Style the form elements */
+  form {
+    margin: 20px;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  input[type="text"] {
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  input[type="submit"] {
+    background-color: #986c91;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #986c91;
+  }
+  
+  /* Style the table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Style links */
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Style the "DONE" button */
+  .admin-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #986c91;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    margin: 20px;
+  }
+  
+  .admin-button:hover {
+    background-color: #986c91;
+  }
+  

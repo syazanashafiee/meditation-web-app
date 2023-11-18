@@ -1,0 +1,102 @@
+<?php
+
+@include 'meditation-header.php';
+
+
+if(isset($_POST['add_to_bookmark'])){
+
+   $library_name = $_POST['library_name'];
+   $library_image = $_POST['library_image'];
+   
+
+   $select_bookmark = mysqli_query($connect, "SELECT * FROM `bookmark` WHERE name = '$library_name'");
+
+   if(mysqli_num_rows($select_bookmark) > 0){
+      $message[] = 'library already added to bookmark';
+   }else{
+      $insert_library = mysqli_query($connect, "INSERT INTO `bookmark`(name, image) VALUES('$library_name', '$library_image')");
+      $message[] = 'library added to bookmark succesfully';
+   }
+
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Library</title>
+   
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="style_library.css">
+   
+</head>
+<body>
+   
+<?php
+
+if(isset($message)){
+   foreach($message as $message){
+      echo '<div class="message"><span>'.$message.'</span> <i class="fas fa-times" onclick="this.parentElement.style.display = `none`;"></i> </div>';
+   };
+};
+
+?>
+
+
+<?php include 'header.php'; ?>
+
+
+
+<div class="container">
+
+<section class="library">
+
+   <h1 class="heading">Library</h1>
+   
+
+   <div class="box-container">
+
+      <?php
+      
+      $select_library = mysqli_query($connect, "SELECT * FROM `library`");
+      if(mysqli_num_rows($select_library) > 0){
+         while($fetch_library = mysqli_fetch_assoc($select_library)){
+      ?>
+
+      <form action="" method="post">
+         <div class="box">
+            <img src="uploaded_img/<?php echo $fetch_library['image']; ?>" alt="">
+            <h3><?php echo $fetch_library['name']; ?></h3>
+            <input type="hidden" name="library_name" value="<?php echo $fetch_library['name']; ?>">
+            <input type="hidden" name="library_image" value="<?php echo $fetch_library['image']; ?>">
+            <input type="submit" class="btn" value="add to bookmark" name="add_to_bookmark">
+         </div>
+      </form>
+
+      <?php
+         };
+      };
+      ?>
+	  
+	  
+
+   </div>
+
+</section>
+
+
+</div>
+
+<!-- custom js file link  -->
+<script src="script_library.js"></script>
+
+</body>
+</html>
